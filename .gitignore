@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+venv/
+env/
+.chroma/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Alembic SQLite (kalau pake SQLite)
+*.db
+
+# VS Code / MacOS / Misc
+.DS_Store
+
+# Chroma DB / local db
+app/chroma_store/
+
+#uploaded documents
+app/uploads/
+
+.env
+
