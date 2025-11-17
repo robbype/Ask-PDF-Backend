@@ -24,6 +24,7 @@ async def get_messages(
     messages = db.query(Message).filter(Message.document_id == document_id).all()
     return messages
 
+
 @router.post("/")
 async def ask_document(
     request: MessageRequest,

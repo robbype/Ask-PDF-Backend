@@ -13,6 +13,7 @@ from app.core.security import (
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
 
+
 @router.post("/register", status_code=status.HTTP_201_CREATED)
 def register_user(data: RegisterRequest, db: Session = Depends(get_db)):
     existing_user = db.query(User).filter(User.username == data.username).first()
@@ -26,6 +27,7 @@ def register_user(data: RegisterRequest, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(user)
     return {"message": "User created successfully", "user_id": user.id}
+
 
 @router.post("/login")
 def login_user(data: LoginRequest, db: Session = Depends(get_db)):

@@ -20,4 +20,3 @@ Base.metadata.create_all(bind=engine)
 app.include_router(document.router)
 app.include_router(message.router)
 app.include_router(auth.router)
-

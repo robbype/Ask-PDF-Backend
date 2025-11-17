@@ -21,12 +21,14 @@ router = APIRouter(
     tags=["Document"],
 )
 
+
 @router.get("/", response_model=List[DocumentResponse])
 async def get_all_documents(
     current_user: User = Depends(get_current_user), db: Session = Depends(get_db)
 ):
     documents = db.query(Document).filter(Document.user_id == current_user.id).all()
     return documents
+
 
 @router.get("/messages/{document_id}")
 async def get_messages(
@@ -108,4 +110,3 @@ async def upload_document(
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
